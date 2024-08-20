@@ -17,44 +17,44 @@ function Logo(){
   </g>
   <defs>
     <linearGradient id="paint0_linear_8_2985" x1="6.79367" y1="24.0391" x2="14.5168" y2="24.0391" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#B0D1FF"/>
-      <stop offset="1" stop-color="#4F93FF"/>
+      <stop stopColor="#B0D1FF"/>
+      <stop offset="1" stopColor="#4F93FF"/>
     </linearGradient>
     <linearGradient id="paint1_linear_8_2985" x1="-0.000106391" y1="17.064" x2="7.93108" y2="17.064" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#B0D1FF"/>
-      <stop offset="1" stop-color="#4F93FF"/>
+      <stop stopColor="#B0D1FF"/>
+      <stop offset="1" stopColor="#4F93FF"/>
     </linearGradient>
     <linearGradient id="paint2_linear_8_2985" x1="17.0874" y1="28.9622" x2="17.4224" y2="-5.91041" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0058D4"/>
-      <stop offset="1" stop-color="#00245B"/>
+      <stop stopColor="#0058D4"/>
+      <stop offset="1" stopColor="#00245B"/>
     </linearGradient>
     <linearGradient id="paint3_linear_8_2985" x1="16.9431" y1="7.10729" x2="16.8314" y2="16.4181" gradientUnits="userSpaceOnUse">
       <stop/>
-      <stop offset="1" stop-color="#B0D1FF"/>
+      <stop offset="1" stopColor="#B0D1FF"/>
     </linearGradient>
     <linearGradient id="paint4_linear_8_2985" x1="11.189" y1="23.3211" x2="26.5031" y2="23.3211" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#001334"/>
-      <stop offset="1" stop-color="#00245B"/>
+      <stop stopColor="#001334"/>
+      <stop offset="1" stopColor="#00245B"/>
     </linearGradient>
     <linearGradient id="paint5_linear_8_2985" x1="4.32556" y1="15.6991" x2="22.6443" y2="15.6991" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#001334"/>
-      <stop offset="1" stop-color="#00245B"/>
+      <stop stopColor="#001334"/>
+      <stop offset="1" stopColor="#00245B"/>
     </linearGradient>
     <linearGradient id="paint6_linear_8_2985" x1="7.52103" y1="22.496" x2="25.8529" y2="22.496" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0065FF"/>
-      <stop offset="1" stop-color="#00C4F7"/>
+      <stop stopColor="#0065FF"/>
+      <stop offset="1" stopColor="#00C4F7"/>
     </linearGradient>
     <linearGradient id="paint7_linear_8_2985" x1="0.454711" y1="14.872" x2="21.9935" y2="14.872" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0065FF"/>
-      <stop offset="1" stop-color="#00C4F7"/>
+      <stop stopColor="#0065FF"/>
+      <stop offset="1" stopColor="#00C4F7"/>
     </linearGradient>
     <linearGradient id="paint8_linear_8_2985" x1="23.494" y1="17.2036" x2="19.8911" y2="23.1118" gradientUnits="userSpaceOnUse">
       <stop/>
-      <stop offset="1" stop-color="#B0D1FF"/>
+      <stop offset="1" stopColor="#B0D1FF"/>
     </linearGradient>
     <linearGradient id="paint9_linear_8_2985" x1="16.5231" y1="13.351" x2="12.2675" y2="18.7511" gradientUnits="userSpaceOnUse">
       <stop/>
-      <stop offset="1" stop-color="#B0D1FF"/>
+      <stop offset="1" stopColor="#B0D1FF"/>
     </linearGradient>
   </defs>
 </svg>
@@ -64,7 +64,7 @@ function Logo(){
 function SearchIcon(){
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M17.5 17.5L14.5834 14.5833M16.6667 9.58333C16.6667 13.4954 13.4954 16.6667 9.58333 16.6667C5.67132 16.6667 2.5 13.4954 2.5 9.58333C2.5 5.67132 5.67132 2.5 9.58333 2.5C13.4954 2.5 16.6667 5.67132 16.6667 9.58333Z" stroke="#667085" stroke-width="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M17.5 17.5L14.5834 14.5833M16.6667 9.58333C16.6667 13.4954 13.4954 16.6667 9.58333 16.6667C5.67132 16.6667 2.5 13.4954 2.5 9.58333C2.5 5.67132 5.67132 2.5 9.58333 2.5C13.4954 2.5 16.6667 5.67132 16.6667 9.58333Z" stroke="#667085" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
     )
 }
@@ -132,4 +132,19 @@ function Signouticon(){
   )
 }
 
-export { Logo, SearchIcon, Homeicon, Usericon, Plusicon, Scripticon,  Signouticon }
+function Harmburger(){
+  return (
+    <svg
+    width="24px"
+    height="24px"
+    viewBox="0 0 16 16"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    >
+    <rect width={16} height={16} id="icon-bound" fill="none" />
+    <path d="M1,9h14V7H1V9z M1,14h14v-2H1V14z M1,2v2h14V2H1z" />
+  </svg>
+  )
+}
+
+export { Logo, SearchIcon, Homeicon, Usericon, Plusicon, Scripticon,  Signouticon, Harmburger }
