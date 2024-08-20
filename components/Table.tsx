@@ -273,11 +273,13 @@ export default function Table(){
         <div className="hero min-h-48 rounded-lg w-full overflow-auto">
             <table className="w-full rounded-lg border">
                 <thead className="sticky top-[-1px]">
-                    <td className="bg-primary py-2 text-white text-left pl-2">Customer's Name </td>
-                    <td className="bg-primary py-2 text-white text-left pl-2">Computer's Name</td>
-                    <td className="bg-primary py-2 text-white text-left pl-2">Date Brought In</td>
-                    <td className="bg-primary py-2 text-white text-left pl-2">Acknowledged By</td>
-                    <td className="bg-primary py-2 text-white text-left pl-2">Issue</td>
+                    <tr>
+                        <td className="bg-primary py-2 text-white text-left pl-2">Customer's Name </td>
+                        <td className="bg-primary py-2 text-white text-left pl-2">Computer's Name</td>
+                        <td className="bg-primary py-2 text-white text-left pl-2">Date Brought In</td>
+                        <td className="bg-primary py-2 text-white text-left pl-2">Acknowledged By</td>
+                        <td className="bg-primary py-2 text-white text-left pl-2">Issue</td>
+                    </tr>
                 </thead>
                 <tbody>
                     {renderedData}
