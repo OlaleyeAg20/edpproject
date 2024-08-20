@@ -257,7 +257,7 @@ const dataBase = [
 ]
 let renderedData = dataBase.map((item) => {
     return (
-        <tr>
+        <tr key={item.customerName}>
             <td className="py-2 border border-gray-400 text-left pl-2 bg-gray-100">{item.customerName}</td>
             <td className="py-2 border border-gray-400 text-left pl-2">{item.computerName}</td>
             <td className="py-2 border border-gray-400 text-left pl-2 bg-gray-100">{item.date}</td>
