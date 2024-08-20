@@ -274,8 +274,8 @@ export default function Table(){
             <table className="w-full rounded-lg border">
                 <thead className="sticky top-[-1px]">
                     <tr>
-                        <td className="bg-primary py-2 text-white text-left pl-2">Customer's Name </td>
-                        <td className="bg-primary py-2 text-white text-left pl-2">Computer's Name</td>
+                        <td className="bg-primary py-2 text-white text-left pl-2">Customer&apos;s Name </td>
+                        <td className="bg-primary py-2 text-white text-left pl-2">Computer&apos;s Name</td>
                         <td className="bg-primary py-2 text-white text-left pl-2">Date Brought In</td>
                         <td className="bg-primary py-2 text-white text-left pl-2">Acknowledged By</td>
                         <td className="bg-primary py-2 text-white text-left pl-2">Issue</td>
