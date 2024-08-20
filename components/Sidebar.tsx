@@ -32,13 +32,15 @@ const sideBarLinks = [
 
 
 export default function Sidebar(){
+    
+    const pathname = usePathname()
+
     const sideBarLinksOutput = sideBarLinks.map((links) => {
-        const pathname = usePathname()
     
         const activeLinkClass = pathname === links.URL && '!bg-primary !text-white !hover:bg-primary'
     
         return (
-            <Link href={links.URL} className={`flex p-2 rounded-lg text-black items-center gap-4 hover:bg-secondary ${activeLinkClass}`}>
+            <Link href={links.URL} className={`flex p-2 rounded-lg text-black items-center gap-4 hover:bg-secondary ${activeLinkClass}`} key={links.name}>
                 {links.icon}
                 <span>{links.name}</span>
             </Link>
