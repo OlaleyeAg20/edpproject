@@ -29,11 +29,12 @@ const sideBarLinks = [
     },
 ]
 
+const pathname = usePathname()
+
 
 export default function Sidebar(){
     const sideBarLinksOutput = sideBarLinks.map((links) => {
     
-        const pathname = usePathname()
     
         const activeLinkClass = pathname === links.URL && '!bg-primary !text-white !hover:bg-primary'
     
