@@ -91,8 +91,8 @@ export default function Stafflist() {
             <TableRow key={staff.id}>
               <TableCell>
                 <Avatar>
-                  <AvatarImage src={staff.image} alt={staff.name} />
-                  <AvatarFallback>{staff.name.split(' ').map((n: any[]) => n[0]).join('')}</AvatarFallback>
+                  <AvatarImage src={staff.image} />
+                  <AvatarFallback>IM</AvatarFallback>
                 </Avatar>
               </TableCell>
               <TableCell className="font-medium">{staff.name}</TableCell>
