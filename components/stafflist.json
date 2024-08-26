@@ -1,0 +1,66 @@
+[
+    {
+      "id": 1,
+      "name": "Ayomide Olaleye",
+      "role": "CEO",
+      "department": "Executive",
+      "email": "alice@example.com",
+      "image": "/profile.png"
+    },
+    {
+      "id": 2,
+      "name": "Bob Smith",
+      "role": "CTO",
+      "department": "Technology",
+      "email": "bob@example.com",
+      "image": "/placeholder.svg?height=40&width=40"
+    },
+    {
+      "id": 3,
+      "name": "Carol Williams",
+      "role": "CFO",
+      "department": "Finance",
+      "email": "carol@example.com",
+      "image": "/placeholder.svg?height=40&width=40"
+    },
+    {
+      "id": 4,
+      "name": "David Brown",
+      "role": "Head of Marketing",
+      "department": "Marketing",
+      "email": "david@example.com",
+      "image": "/placeholder.svg?height=40&width=40"
+    },
+    {
+      "id": 5,
+      "name": "Eva Davis",
+      "role": "Lead Developer",
+      "department": "Technology",
+      "email": "eva@example.com",
+      "image": "/placeholder.svg?height=40&width=40"
+    },
+    {
+      "id": 6,
+      "name": "Frank Wilson",
+      "role": "HR Manager",
+      "department": "Human Resources",
+      "email": "frank@example.com",
+      "image": "/placeholder.svg?height=40&width=40"
+    },
+    {
+      "id": 7,
+      "name": "Grace Lee",
+      "role": "Product Manager",
+      "department": "Product",
+      "email": "grace@example.com",
+      "image": "/placeholder.svg?height=40&width=40"
+    },
+    {
+      "id": 8,
+      "name": "Henry Taylor",
+      "role": "Sales Director",
+      "department": "Sales",
+      "email": "henry@example.com",
+      "image": "/placeholder.svg?height=40&width=40"
+    }
+  ]
