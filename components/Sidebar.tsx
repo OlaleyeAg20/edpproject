@@ -38,7 +38,7 @@ export default function Sidebar(){
     const auth = getAuth(app);
     function signOutAction(){
         signOut(auth).then(() => {
-            location.reload()
+            open('/', "_self")
         }).catch((error) => {
             alert(error)
         // An error happened.
