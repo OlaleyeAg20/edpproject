@@ -1,4 +1,5 @@
 import Aboutus from '@/components/Aboutus'
+import Contactus from '@/components/Contactus'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
@@ -12,6 +13,7 @@ const Landingpage = () => {
       <Hero />
       <Ourservices />
       <Aboutus />
+      <Contactus />
       <Footer />
     </>
   )

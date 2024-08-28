@@ -1,11 +1,11 @@
+import Link from "next/link";
 import React from "react";
+import Logo from "./Logo";
 
 const Header = () => {
   return (
     <header className="flex items-center z-10 bg-white w-full border-gray-400 justify-between h-16 py-6 px-4 md:px-6 border-b">
-      <a className="flex items-center gap-2" href="#">
-        <span className="text-2xl font-bold">Efix</span>
-      </a>
+      <Logo />
       <button
         className="p-1 sm:hidden border rounded z-50 bg-white top-4 right-4"
         id="menuBtn"
@@ -64,18 +64,18 @@ const Header = () => {
           className="flex flex-col sm:flex-row sm:w-auto items-center gap-4 w-full sm:mt-0 mt-auto"
           id="signInContainer"
         >
-          <a
-            href="/signin"
+          <Link
+            href="/Signin"
             className="inline-flex h-9 items-center border justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-muted-foreground shadow-sm transition-colors hover:bg-muted hover:text-muted-foreground focus:outline-none focus:ring-2 sm:w-36 w-full focus:ring-ring focus:ring-offset-2"
           >
             Sign In
-          </a>
-          <a
-            href="/signup"
+          </Link>
+          <Link
+            href="/Signup"
             className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors sm:w-36 w-full hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
           >
             Sign Up
-          </a>
+          </Link>
         </div>
       </div>
       <button

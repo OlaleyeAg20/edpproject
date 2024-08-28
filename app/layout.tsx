@@ -12,6 +12,7 @@ const ibmMono = IBM_Plex_Sans({
 export const metadata: Metadata = {
   title: "Efix",
   description: "Get your PC fixed with ease",
+  icons: "/icon/favicon.ico"
 };
 
 export default function RootLayout({

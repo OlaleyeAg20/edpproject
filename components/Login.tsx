@@ -1,48 +1,18 @@
-"use client"
-import React, { useState } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import Logo from "@/components/Logo"
-import { auth } from "../.././firebase/config"
-import { signInWithEmailAndPassword } from "firebase/auth";
-// import {useSignInWithEmailAndPassword} from 'react-firebase-hooks/auth'
-import { useRouter } from 'next/navigation'
+import Image from "next/image";
+import React from "react";
 
-
-const Signin = () => {
-  const [passwordInput, setPasswordInput] = useState('')
-  const [emailInput, setEmailInput] = useState('')
-  const [showPasswordReset, setShowPasswordReset] = useState(true)
-
-  const router = useRouter()
-  
-  function signInAction(){
-    signInWithEmailAndPassword(auth, emailInput, passwordInput)
-    .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      return router.push('/')
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert(errorCode)
-    });
-  
-  }
-
+const Login = () => {
   return (
     <>
-      <header className="flex px-8 py-4 gap-8 bg-[#F4F4F5]">
-        <Logo />
-        <button onClick={() => {
-          history.back()
-        }} className="px-4 py-2 rounded bg-black text-white cursor-pointer border-none">
+      <header className="flex px-8 py-4 gap-8 content-center bg-[#F4F4F5] w-full">
+        <a className="flex items-center gap-2" href="../index.html">
+          <span className="text-2xl font-bold">Efix</span>
+        </a>
+        <button className="px-2 py-4 rounded" onClick={() => history.back()}>
           Go Back
         </button>
       </header>
-      <form className="flex flex-col gap-4 bg-white p-8 w-full max-w-[450px] rounded-[20px] mx-auto mt-10" id="form" action="/" onSubmit={(e) => e.preventDefault()}>
+      <form className="flex flex-col gap-4 bg-white p-8 w-full min-w-[450px] rounded-[20px] mx-auto mt-10" id="form" action="../index.html">
         <div className="flex-column">
           <label>Email </label>
         </div>
@@ -62,7 +32,6 @@ const Signin = () => {
             className="ml-[10px] text-base border-none w-[85%] focus:outline-none"
             placeholder="Enter your Email"
             id="emailInput"
-            onChange={(e) => setEmailInput(e.target.value)}
             required
           />
         </div>
@@ -70,7 +39,7 @@ const Signin = () => {
         <div className="flex-column">
           <label>Password </label>
         </div>
-        <div className="border-[1.5px] border-[#ecedec] rounded-[10px] h-[50px] flex items-center pl-[10px] focus-within:border-[1.5px] focus-within:border-primary">
+        <div className="border border-[#ecedec] rounded-[10px] h-[50px] flexitems-center pl-[10px]">
           <svg
             height="20"
             viewBox="-64 0 512 512"
@@ -85,7 +54,6 @@ const Signin = () => {
             className="ml-[10px] text-base border-none w-[85%] focus:outline-none"
             placeholder="Enter your Password"
             id="passwordInput"
-            onChange={(e) => setPasswordInput(e.target.value)}
             required
           />
           <svg
@@ -97,29 +65,25 @@ const Signin = () => {
           </svg>
         </div>
 
-        <div className="flex flex-row justify-between">
-          <div className='flex gap-2'>
+        <div className="flex-row">
+          <div>
             <input type="checkbox" id="remember" />
             <label htmlFor="remember">Remember me </label>
           </div>
-          <button type="button" className="text-primary font-bold" onClick={e => {
-            setShowPasswordReset((event) => event = false)
-          }} id="forgotPassword">
+          <button type="button" className="span" id="forgotPassword">
             Forgot password?
           </button>
         </div>
         <button
           type="submit"
           className="m-[20px 0 10px 0] bg-[#151717] border-none text-white text-base font-[500] rounded-[10px] h-[50px] w-full cursor-pointer flex items-center justify-center hover:bg-[#252727] disabled:bg-[#A4A4A5] disabled:hover:bg-[#A4A4A5]"
-          onClick={signInAction}
           id="signInBtn"
         >
           {" "}
           <Image
             id="loadingIcon"
-            src="/assets/gifs/1488.gif"
+            src="../assets/gifs/1488.gif"
             width={30}
-            height={30}
             className="hidden"
             alt="loading"
           />
@@ -127,23 +91,14 @@ const Signin = () => {
         </button>
         <p className="text-center text-black text-sm my-[5px] mx-0">
           Don't have an account?{" "}
-          <Link href="/Signup" className="text-primary font-bold">
+          <a href="../signup/index.html" className="span">
             Sign Up
-          </Link>
+          </a>
         </p>
       </form>
-
-
-      {
-        showPasswordReset ||
-        <div
+      <div
         id="forgotPasswordPopup"
-        className="fixed top-0 bottom-0 left-0 right-0 bg-[#121212AF] flex justify-center items-center h-screen w-full"
-        onClick={(e) => {
-          if(e.target === e.currentTarget){
-            setShowPasswordReset((event) => event = true)
-          }
-        }}
+        className="fixed top-0 bottom-0 left-0 right-0 bg-[#121212AF] justify-center items-center hidden"
       >
         <form
           className="flex flex-col bg-white h-60 w-[80%] max-w-[480px] px-5 py-4 gap-4 justify-center items-center"
@@ -168,13 +123,12 @@ const Signin = () => {
         <button
           className="absolute top-4 right-4 p-4 text-white"
           id="closePopupBtn"
-          onClick={(e) => {setShowPasswordReset((event) => event = true)}}
         >
           Close
         </button>
-      </div>}
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Signin
+export default Login;

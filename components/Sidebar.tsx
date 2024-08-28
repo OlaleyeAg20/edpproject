@@ -1,10 +1,12 @@
 'use client'
-import { Homeicon, Logo, Plusicon, Scripticon, SearchIcon, Signouticon, Usericon } from "@/components/ui/Icon";
+import { Homeicon, Plusicon, Scripticon, SearchIcon, Signouticon, Usericon } from "@/components/ui/Icon";
 import Image from "next/image";
+import Logo from "@/components/Logo"
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
-
+import { getAuth, signOut } from "firebase/auth";
+import { app } from "@/app/firebase/config"
 
 const sideBarLinks = [
     {
@@ -32,6 +34,19 @@ const sideBarLinks = [
 
 
 export default function Sidebar(){
+
+    const auth = getAuth(app);
+    function signOutAction(){
+        signOut(auth).then(() => {
+            location.reload()
+        }).catch((error) => {
+            alert(error)
+        // An error happened.
+        });
+    }
+
+    const signedInUser = auth.currentUser;
+
     
     const pathname = usePathname()
 
@@ -70,10 +85,10 @@ export default function Sidebar(){
                 />
                 <div className="details flex flex-col">
                     <h1 className="font-bold text-xl">Ayomide Olaleye</h1>
-                    <span className="text-sm">olaleye349@gmail.com</span>
+                    <span className="text-sm">{signedInUser?.email}</span>
                 </div>
             </div>
-            <Button className="flex items-center justify-center gap-2" variant={"outline"}>
+            <Button className="flex items-center justify-center gap-2" variant={"outline"} onClick={signOutAction}>
                 <span>SIGN OUT</span>
                 <Signouticon />
             </Button>
