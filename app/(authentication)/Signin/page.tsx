@@ -126,7 +126,7 @@ const Signin = () => {
           <span id="btnText">Sign In</span>
         </button>
         <p className="text-center text-black text-sm my-[5px] mx-0">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link href="/Signup" className="text-primary font-bold">
             Sign Up
           </Link>
