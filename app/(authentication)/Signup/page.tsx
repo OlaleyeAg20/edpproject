@@ -50,6 +50,18 @@ export default function Signup() {
         <form onSubmit={handleSubmit} className="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
           <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
           <div className="mb-4">
+            <label htmlFor="firstName" className="block text-gray-700 mb-2">
+              Firstname
+            </label>
+            <input type="text" id="firstName" className="w-full px-3 py-2 border rounded-lg" />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="lastName" className="block text-gray-700 mb-2">
+              Lastname (Surname)
+            </label>
+            <input type="text" id="lastName" className="w-full px-3 py-2 border rounded-lg" required />
+          </div>
+          <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700 mb-2">
               Email
             </label>
