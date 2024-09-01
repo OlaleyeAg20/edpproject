@@ -7,11 +7,11 @@ import {
   } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAMN9df4mxYsHCws8-tNmkLyBS8nd16yGM",
-    authDomain: "new-edp-project.firebaseapp.com",
-    projectId: "new-edp-project",
-    storageBucket: "new-edp-project.appspot.com",
-    messagingSenderId: "597878049025",
+    apiKey: process.env.GOOGLE_API_KEY,
+    authDomain: process.env.AUTHDOMAIN,
+    projectId: process.env.PROJECTID,
+    storageBucket: process.env.STORAGEBUCKET,
+    messagingSenderId: process.env.MESSAGINGID,
     appId: "1:597878049025:web:06351a0ef05847a434f300"
   };
   
