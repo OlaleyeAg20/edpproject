@@ -7,11 +7,11 @@ import {
   } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: process.env.GOOGLE_API_KEY,
-    authDomain: process.env.AUTHDOMAIN,
-    projectId: process.env.PROJECTID,
-    storageBucket: process.env.STORAGEBUCKET,
-    messagingSenderId: process.env.MESSAGINGID,
+    apiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_AUTHDOMAIN,
+    projectId: process.env.NEXT_PUBLIC_PROJECTID,
+    storageBucket: process.env.NEXT_PUBLIC_STORAGEBUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_MESSAGINGID,
     appId: "1:597878049025:web:06351a0ef05847a434f300"
   };
   
