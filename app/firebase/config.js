@@ -7,15 +7,15 @@ import {
   } from "firebase/auth";
 
   const firebaseConfig = {
-    apiKey: "AIzaSyAMN9df4mxYsHCws8-tNmkLyBS8nd16yGM",
-    authDomain: "new-edp-project.firebaseapp.com",
+    apiKey: NEXT_PUBLIC_GOOGLE_API_KEY,
+    authDomain: NEXT_PUBLIC_AUTHDOMAIN,
     databaseURL: "https://new-edp-project-default-rtdb.firebaseio.com",
-    projectId: "new-edp-project",
-    storageBucket: "new-edp-project.appspot.com",
-    messagingSenderId: "597878049025",
+    projectId: NEXT_PUBLIC_PROJECTID,
+    storageBucket: NEXT_PUBLIC_STORAGEBUCKET,
+    messagingSenderId: NEXT_PUBLIC_MESSAGINGID,
     appId: "1:597878049025:web:06351a0ef05847a434f300"
   };
-  
+
   const app = initializeApp(firebaseConfig)
   const auth = getAuth(app);
 
