@@ -1,284 +1,60 @@
+'use client';
+import { useState, useEffect } from 'react';
+import { getDatabase, ref, onValue } from 'firebase/database';
+import { app } from '@/app/firebase/config'; // Import your Firebase config
 
+// Define the interface for your data
+interface ComputerData {
+    id: string;
+    customerName: string;
+    firstName: string;
+    date: string;
+    acknowledgedBy: string;
+    computerIssue: string;
+    issueDescription: string;
+}
 
-const dataBase = [
-    {
-        customerName: 'Obanla David',
-        computerName: 'HP EliteBook Pro',
-        date: '27th Oct, 2025',
-        acknowledgedBy: 'Akewusola Samuel',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Pablo Escoba',
-        computerName: 'FUNAAB Custom PC',
-        date: '27th Jan, 2025',
-        acknowledgedBy: 'Bola Ahmed Tinubu',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Mark Zuckerberg',
-        computerName: 'Lenovo ThinkPad',
-        date: '15th December, 2025',
-        acknowledgedBy: 'Vice Chancellor',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Babatunde Kehinde',
-        computerName: 'Dell Latitude',
-        date: '1st Jan, 2026',
-        acknowledgedBy: 'David Adeleke',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Obanla David',
-        computerName: 'HP EliteBook Pro',
-        date: '27th Oct, 2025',
-        acknowledgedBy: 'Akewusola Samuel',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Pablo Escoba',
-        computerName: 'FUNAAB Custom PC',
-        date: '27th Jan, 2025',
-        acknowledgedBy: 'Bola Ahmed Tinubu',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Mark Zuckerberg',
-        computerName: 'Lenovo ThinkPad',
-        date: '15th December, 2025',
-        acknowledgedBy: 'Vice Chancellor',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Babatunde Kehinde',
-        computerName: 'Dell Latitude',
-        date: '1st Jan, 2026',
-        acknowledgedBy: 'David Adeleke',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Obanla David',
-        computerName: 'HP EliteBook Pro',
-        date: '27th Oct, 2025',
-        acknowledgedBy: 'Akewusola Samuel',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Pablo Escoba',
-        computerName: 'FUNAAB Custom PC',
-        date: '27th Jan, 2025',
-        acknowledgedBy: 'Bola Ahmed Tinubu',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Mark Zuckerberg',
-        computerName: 'Lenovo ThinkPad',
-        date: '15th December, 2025',
-        acknowledgedBy: 'Vice Chancellor',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Babatunde Kehinde',
-        computerName: 'Dell Latitude',
-        date: '1st Jan, 2026',
-        acknowledgedBy: 'David Adeleke',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Obanla David',
-        computerName: 'HP EliteBook Pro',
-        date: '27th Oct, 2025',
-        acknowledgedBy: 'Akewusola Samuel',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Pablo Escoba',
-        computerName: 'FUNAAB Custom PC',
-        date: '27th Jan, 2025',
-        acknowledgedBy: 'Bola Ahmed Tinubu',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Mark Zuckerberg',
-        computerName: 'Lenovo ThinkPad',
-        date: '15th December, 2025',
-        acknowledgedBy: 'Vice Chancellor',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Babatunde Kehinde',
-        computerName: 'Dell Latitude',
-        date: '1st Jan, 2026',
-        acknowledgedBy: 'David Adeleke',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Obanla David',
-        computerName: 'HP EliteBook Pro',
-        date: '27th Oct, 2025',
-        acknowledgedBy: 'Akewusola Samuel',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Pablo Escoba',
-        computerName: 'FUNAAB Custom PC',
-        date: '27th Jan, 2025',
-        acknowledgedBy: 'Bola Ahmed Tinubu',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Mark Zuckerberg',
-        computerName: 'Lenovo ThinkPad',
-        date: '15th December, 2025',
-        acknowledgedBy: 'Vice Chancellor',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Babatunde Kehinde',
-        computerName: 'Dell Latitude',
-        date: '1st Jan, 2026',
-        acknowledgedBy: 'David Adeleke',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Obanla David',
-        computerName: 'HP EliteBook Pro',
-        date: '27th Oct, 2025',
-        acknowledgedBy: 'Akewusola Samuel',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Pablo Escoba',
-        computerName: 'FUNAAB Custom PC',
-        date: '27th Jan, 2025',
-        acknowledgedBy: 'Bola Ahmed Tinubu',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Mark Zuckerberg',
-        computerName: 'Lenovo ThinkPad',
-        date: '15th December, 2025',
-        acknowledgedBy: 'Vice Chancellor',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Babatunde Kehinde',
-        computerName: 'Dell Latitude',
-        date: '1st Jan, 2026',
-        acknowledgedBy: 'David Adeleke',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Obanla David',
-        computerName: 'HP EliteBook Pro',
-        date: '27th Oct, 2025',
-        acknowledgedBy: 'Akewusola Samuel',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Pablo Escoba',
-        computerName: 'FUNAAB Custom PC',
-        date: '27th Jan, 2025',
-        acknowledgedBy: 'Bola Ahmed Tinubu',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Mark Zuckerberg',
-        computerName: 'Lenovo ThinkPad',
-        date: '15th December, 2025',
-        acknowledgedBy: 'Vice Chancellor',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Babatunde Kehinde',
-        computerName: 'Dell Latitude',
-        date: '1st Jan, 2026',
-        acknowledgedBy: 'David Adeleke',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Obanla David',
-        computerName: 'HP EliteBook Pro',
-        date: '27th Oct, 2025',
-        acknowledgedBy: 'Akewusola Samuel',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Pablo Escoba',
-        computerName: 'FUNAAB Custom PC',
-        date: '27th Jan, 2025',
-        acknowledgedBy: 'Bola Ahmed Tinubu',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Mark Zuckerberg',
-        computerName: 'Lenovo ThinkPad',
-        date: '15th December, 2025',
-        acknowledgedBy: 'Vice Chancellor',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Babatunde Kehinde',
-        computerName: 'Dell Latitude',
-        date: '1st Jan, 2026',
-        acknowledgedBy: 'David Adeleke',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Obanla David',
-        computerName: 'HP EliteBook Pro',
-        date: '27th Oct, 2025',
-        acknowledgedBy: 'Akewusola Samuel',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Pablo Escoba',
-        computerName: 'FUNAAB Custom PC',
-        date: '27th Jan, 2025',
-        acknowledgedBy: 'Bola Ahmed Tinubu',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Mark Zuckerberg',
-        computerName: 'Lenovo ThinkPad',
-        date: '15th December, 2025',
-        acknowledgedBy: 'Vice Chancellor',
-        issue: 'screen'
-    },
-    {
-        customerName: 'Babatunde Kehinde',
-        computerName: 'Dell Latitude',
-        date: '1st Jan, 2026',
-        acknowledgedBy: 'David Adeleke',
-        issue: 'screen'
-    },
+export default function Table() {
+    const [data, setData] = useState<ComputerData[]>([]);
 
-]
-let renderedData = dataBase.map((item) => {
-    return (
-        <tr key={item.customerName}>
-            <td className="py-2 border border-gray-400 text-left pl-2 bg-gray-100">{item.customerName}</td>
-            <td className="py-2 border border-gray-400 text-left pl-2">{item.computerName}</td>
-            <td className="py-2 border border-gray-400 text-left pl-2 bg-gray-100">{item.date}</td>
-            <td className="py-2 border border-gray-400 text-left pl-2">{item.acknowledgedBy}</td>
-            <td className="py-2 border border-gray-400 text-left pl-2 bg-gray-100">{item.issue}</td>
-        </tr>
-    )
-})
+    useEffect(() => {
+        const db = getDatabase(app);
+        const dataRef = ref(db, 'computers'); // Adjust the path to match your database structure
+        onValue(dataRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                // Assuming each entry in the database has a unique key (id)
+                const parsedData: ComputerData[] = Object.keys(data).map((key) => ({
+                    id: key,
+                    ...data[key]
+                }));
+                setData(parsedData);
+            }
+        });
+    }, []);
 
+    const renderedData = data.map((item) => {
+        return (
+            <tr key={item.id}>
+                <td className="py-2 border border-gray-400 text-left pl-2 bg-gray-100">{item.firstName}</td>
+                <td className="py-2 border border-gray-400 text-left pl-2 bg-gray-100">{item.date}</td>
+                <td className="py-2 border border-gray-400 text-left pl-2">{item.acknowledgedBy}</td>
+                <td className="py-2 border border-gray-400 text-left pl-2 bg-gray-100">{item.computerIssue}</td>
+                <td className="py-2 border border-gray-400 text-left pl-2">{item.issueDescription}</td>
+            </tr>
+        )
+    });
 
-export default function Table(){
     return (
         <div className="hero min-h-48 rounded-lg w-full overflow-auto">
             <table className="w-full rounded-lg border">
                 <thead className="sticky top-[-1px]">
                     <tr>
-                        <td className="bg-primary py-2 text-white text-left pl-2">Customer&apos;s Name </td>
-                        <td className="bg-primary py-2 text-white text-left pl-2">Computer&apos;s Name</td>
+                        <td className="bg-primary py-2 text-white text-left pl-2">Customer&apos;s Name</td>
                         <td className="bg-primary py-2 text-white text-left pl-2">Date Brought In</td>
                         <td className="bg-primary py-2 text-white text-left pl-2">Acknowledged By</td>
-                        <td className="bg-primary py-2 text-white text-left pl-2">Issue</td>
+                        <td className="bg-primary py-2 text-white text-left pl-2">Computer Issue</td>
+                        <td className="bg-primary py-2 text-white text-left pl-2">Issue Description</td>
                     </tr>
                 </thead>
                 <tbody>
