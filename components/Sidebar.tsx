@@ -77,14 +77,14 @@ export default function Sidebar(){
             </nav>
             <div className="flex items-center gap-2 mt-auto border-t pt-5">
                 <Image
-                src="/profile.png"
+                src="/defaultUser.png"
                 width={50}
                 height={50}
                 alt="Profile Image"
                 className="rounded-full"
                 />
                 <div className="details flex flex-col">
-                    <h1 className="font-bold text-xl">Ayomide Olaleye</h1>
+                    <h1 className="font-bold text-xl">{signedInUser?.displayName || "Your Name"}</h1>
                     <span className="text-sm">{signedInUser?.email}</span>
                 </div>
             </div>
