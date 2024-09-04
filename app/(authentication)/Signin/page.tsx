@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Logo from "@/components/Logo"
 import { auth } from "../.././firebase/config"
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { sendPasswordResetEmail, signInWithEmailAndPassword, updatePassword } from "firebase/auth";
 // import {useSignInWithEmailAndPassword} from 'react-firebase-hooks/auth'
 import { useRouter } from 'next/navigation'
 
@@ -30,6 +30,20 @@ const Signin = () => {
       alert(errorCode)
     });
   
+  }
+
+  
+  function sendPasswordResetLink(){
+    
+    sendPasswordResetEmail(auth, emailInput)
+    .then(() => {
+      alert("Email sent successfully!")
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage)
+    });
   }
 
   return (
@@ -141,6 +155,7 @@ const Signin = () => {
         <form
           className="flex flex-col bg-white h-60 w-[80%] max-w-[480px] px-5 py-4 gap-4 justify-center items-center"
           id="resetForm"
+          onSubmit={e => e.preventDefault()}
         >
           <h2 className="text-xl font-bold">Reset Your Password</h2>
           <div className="flex flex-col w-full gap-4">
@@ -149,11 +164,14 @@ const Signin = () => {
               className="border-solid border p-2 rounded"
               type="email"
               id="emailResetInput"
+              value={emailInput}
+              onChange={(e) => setEmailInput(e.target.value)}
             />
           </div>
           <button
             className="bg-primary text-white py-4 w-full rounded"
             id="passwordResetbtn"
+            onClick={sendPasswordResetLink}
           >
             Send Password Reset Link
           </button>
