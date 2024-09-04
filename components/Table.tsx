@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import { app } from '@/app/firebase/config'; // Import your Firebase config
+import Emptydatabase from './EmptyDatabase';
 
 
 interface ComputerData {
@@ -47,6 +48,7 @@ export default function Table() {
 
     return (
         <div className="hero min-h-48 rounded-lg w-full overflow-auto">
+        {data[0] ? 
             <table className="w-full rounded-lg border">
                 <thead className="sticky top-[-1px]">
                     <tr>
@@ -61,6 +63,7 @@ export default function Table() {
                     {renderedData}
                 </tbody>
             </table>
+        : <Emptydatabase />}
         </div>
     )
 }
