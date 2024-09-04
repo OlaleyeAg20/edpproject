@@ -8,6 +8,7 @@ interface ComputerData {
     id: string;
     customerName: string;
     firstName: string;
+    lastName: string;
     date: string;
     acknowledgedBy: string;
     computerIssue: string;
@@ -23,7 +24,6 @@ export default function Table() {
         onValue(dataRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
-                // Assuming each entry in the database has a unique key (id)
                 const parsedData: ComputerData[] = Object.keys(data).map((key) => ({
                     id: key,
                     ...data[key]
@@ -36,7 +36,7 @@ export default function Table() {
     const renderedData = data.map((item) => {
         return (
             <tr key={item.id}>
-                <td className="py-2 border border-gray-400 text-left pl-2 bg-gray-100">{item.firstName}</td>
+                <td className="py-2 border border-gray-400 text-left pl-2 bg-gray-100">{`${item.firstName} ${item.lastName}`}</td>
                 <td className="py-2 border border-gray-400 text-left pl-2 bg-gray-100">{item.date}</td>
                 <td className="py-2 border border-gray-400 text-left pl-2">{item.acknowledgedBy}</td>
                 <td className="py-2 border border-gray-400 text-left pl-2 bg-gray-100">{item.computerIssue}</td>

@@ -1,18 +1,21 @@
 'use client'
 import { ChangeEvent, useState } from 'react';
 import { auth } from '@/app/firebase/config'
+import { updateProfile } from "firebase/auth";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import {useRouter} from 'next/navigation';
+// import {useRouter} from 'next/navigation';
 import Logo from '@/components/Logo'
 import Link from 'next/link';
 
 export default function Signup() {
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordValidated, setPasswordValidated] = useState(false)
 
-  const router = useRouter()
+  // const router = useRouter()
 
   function checkBtn(e: ChangeEvent<HTMLInputElement>){
     if(password === e.target.value ){
@@ -26,7 +29,10 @@ export default function Signup() {
       .then((userCredential) => {
         // Signed up 
         const user = userCredential.user;
-        router.push('/')
+        updateProfile(user, {
+          displayName: `${firstName} ${lastName}`
+        })
+        open("/", "_self")
         // ...
       })
       .catch((error) => {
@@ -36,6 +42,7 @@ export default function Signup() {
         // ..
       });
   };
+
 
   return (
     <>
@@ -54,13 +61,26 @@ export default function Signup() {
             <label htmlFor="firstName" className="block text-gray-700 mb-2">
               Firstname
             </label>
-            <input type="text" id="firstName" className="w-full px-3 py-2 border rounded-lg" />
+            <input 
+              type="text"
+              id="firstName"
+              className="w-full px-3 py-2 border rounded-lg"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+              />
           </div>
           <div className="mb-4">
             <label htmlFor="lastName" className="block text-gray-700 mb-2">
               Lastname (Surname)
             </label>
-            <input type="text" id="lastName" className="w-full px-3 py-2 border rounded-lg" required />
+            <input 
+              type="text"
+              id="lastName"
+              className="w-full px-3 py-2 border rounded-lg"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              />
           </div>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700 mb-2">

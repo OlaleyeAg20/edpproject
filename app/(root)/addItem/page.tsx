@@ -2,6 +2,8 @@
 import { ChangeEvent, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { getDatabase, ref, set } from 'firebase/database';
+import { useRouter } from 'next/navigation';
+import { auth } from '@/app/firebase/config';
 
 export default function AddItem() {
     const [formData, setFormData] = useState({
@@ -25,29 +27,40 @@ export default function AddItem() {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        // Get the current date and format it as needed (e.g., YYYY-MM-DD)
         const currentDate = new Date().toISOString().split('T')[0];
 
-        // Add the date to form data before saving
         const dataToSave = {
             ...formData,
             date: currentDate,
+            acknowledgedBy: auth.currentUser?.displayName
         };
 
-        // Reference to the database
         const db = getDatabase();
         const itemRef = ref(db, 'computers/' + Date.now()); // Create a unique ID using timestamp
 
         set(itemRef, dataToSave)
             .then(() => {
                 alert('Computer data has been saved successfully.');
-                // Reset form or navigate to another page
+                resetFormData()
             })
             .catch((error) => {
                 console.error('Error saving data:', error);
                 alert('Failed to save data. Please try again.');
             });
     };
+
+    function resetFormData(){
+        setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phoneNumber: '',
+            computerName: '',
+            computerIssue: '',
+            issueDescription: '',
+            date: '' // Add date to form data state
+        })
+    }
 
     return (
         <div className="py-12 px-8 bg-gray-100 flex-1 overflow-auto">
