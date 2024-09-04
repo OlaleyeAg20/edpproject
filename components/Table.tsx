@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import { app } from '@/app/firebase/config'; // Import your Firebase config
 
-// Define the interface for your data
+
 interface ComputerData {
     id: string;
     customerName: string;

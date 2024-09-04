@@ -7,12 +7,12 @@ import {
   } from "firebase/auth";
 
   const firebaseConfig = {
-    apiKey: NEXT_PUBLIC_GOOGLE_API_KEY,
-    authDomain: NEXT_PUBLIC_AUTHDOMAIN,
+    apiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_AUTHDOMAIN,
     databaseURL: "https://new-edp-project-default-rtdb.firebaseio.com",
-    projectId: NEXT_PUBLIC_PROJECTID,
-    storageBucket: NEXT_PUBLIC_STORAGEBUCKET,
-    messagingSenderId: NEXT_PUBLIC_MESSAGINGID,
+    projectId: process.env.NEXT_PUBLIC_PROJECTID,
+    storageBucket: process.env.NEXT_PUBLIC_STORAGEBUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_MESSAGINGID,
     appId: "1:597878049025:web:06351a0ef05847a434f300"
   };
 
