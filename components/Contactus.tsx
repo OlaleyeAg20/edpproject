@@ -2,7 +2,7 @@ import React from 'react'
 
 const Contactus = () => {
   return (
-    <section id="contact" className="bg-gray-200 p-6 md:p-12 space-y-4" id="contactSection">
+    <section id="contact" className="bg-gray-200 p-6 md:p-12 space-y-4">
             <h2 className="text-2xl font-bold mx-auto text-center">Contact Us</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mx-auto sm:w-3/4">
               <div className="flex items-center gap-4">
