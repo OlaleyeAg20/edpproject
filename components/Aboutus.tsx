@@ -2,7 +2,7 @@ import { Code2, Database, Laptop } from "lucide-react"
 
 export default function Aboutus() {
   return (
-    <section className="py-16 bg-gradient-to-b from-background to-muted">
+    <section id="about" className="py-16 bg-gradient-to-b from-background to-muted">
       <div className="container px-4 md:px-6">
         <div className="grid gap-10 lg:grid-cols-2 items-center">
           <div className="space-y-4">

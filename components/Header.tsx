@@ -37,13 +37,13 @@ const Header = () => {
         <nav className="flex sm:flex-row flex-col items-center gap-6">
           <a
             className="text-muted-foreground hover:text-foreground hover:text-blue-700"
-            href="index.html"
+            href="/"
           >
             Home
           </a>
           <a
             className="text-muted-foreground hover:text-foreground hover:text-blue-700"
-            href="#"
+            href="#about"
           >
             About
           </a>
@@ -55,7 +55,7 @@ const Header = () => {
           </a>
           <a
             className="text-muted-foreground hover:text-foreground hover:text-blue-700"
-            href="#"
+            href="#contact"
           >
             Contact
           </a>
