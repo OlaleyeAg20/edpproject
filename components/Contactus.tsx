@@ -24,8 +24,8 @@ const Contactus = () => {
                 </div>
                 <div>
                   <p className="font-medium">Facebook</p>
-                  <a className="text-muted-foreground hover:underline" href="#">
-                    facebook.com/acmeinc
+                  <a className="text-muted-foreground hover:underline" href="https://facebook.com/ayomide.olaleye.3954">
+                    facebook.com/ayomide.olaleye.3954
                   </a>
                 </div>
               </div>
@@ -48,8 +48,8 @@ const Contactus = () => {
                 </div>
                 <div>
                   <p className="font-medium">WhatsApp</p>
-                  <a className="text-muted-foreground hover:underline" href="#">
-                    +1 (555) 123-4567
+                  <a className="text-muted-foreground hover:underline" href="https://wa.me/+2347014329650">
+                    +234 701 4329 650
                   </a>
                 </div>
               </div>
@@ -73,7 +73,7 @@ const Contactus = () => {
                 </div>
                 <div>
                   <p className="font-medium">Email</p>
-                  <a href="#" className="text-muted-foreground hover:underline">support@acmeinc.com</a>
+                  <a href="mailto:olaleye349@gmail.om" className="text-muted-foreground hover:underline">olaleye349@gmail.om</a>
                 </div>
               </div>
             </div>
